@@ -42,7 +42,7 @@
   <script>
     onclick = function(e) {
       var p = document.querySelector('core-pages');
-      p.selected = (p.selected + 1) % 5;
+      p.selected = (p.selected + 1) % p.children.length;
     }
   </script>
 
