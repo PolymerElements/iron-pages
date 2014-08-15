@@ -18,9 +18,6 @@
     }
 
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       font-family: sans-serif;
     }
 
@@ -52,23 +49,23 @@
       color: white;
     }
 
-    core-pages.fancy > div:nth-child(1) {
+    core-pages.fancy > .one {
       background-color: red;
     }
 
-    core-pages.fancy > div:nth-child(2) {
+    core-pages.fancy > .two {
       background-color: green;
     }
 
-    core-pages.fancy > div:nth-child(3) {
+    core-pages.fancy > .three {
       background-color: blue;
     }
 
-    core-pages.fancy > div:nth-child(4) {
+    core-pages.fancy > .four {
       background-color: purple;
     }
 
-    core-pages.fancy > div:nth-child(5) {
+    core-pages.fancy > .five {
       background-color: black;
     }
 
@@ -91,7 +88,7 @@
   </style>
 
 </head>
-<body unresolved>
+<body unresolved fullbleed horizontal center center-justified layout>
 
   <core-pages id="first" selected="0">
     <div>One</div>
@@ -102,11 +99,11 @@
   </core-pages>
 
   <core-pages class="fancy" selected="0">
-    <div>One</div>
-    <div>Two</div>
-    <div>Three</div>
-    <div>Four</div>
-    <div>Five</div>
+    <div class="one">One</div>
+    <div class="two">Two</div>
+    <div class="three">Three</div>
+    <div class="four">Four</div>
+    <div class="five">Five</div>
   </core-pages>
 
   <script>
