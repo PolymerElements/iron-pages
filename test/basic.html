@@ -76,12 +76,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         });
 
         test('selected item', function() {
-          assert.equal(pages.item, pages.items[0]);
+          assert.equal(pages.selectedItem, pages.items[0]);
         });
 
         test('selected item is display:block and all others are display:none', function() {
           pages.items.forEach(function(p) {
-            assert.equal(getComputedStyle(p).display, p == pages.item ? 'block' : 'none');
+            assert.equal(getComputedStyle(p).display, p == pages.selectedItem ? 'block' : 'none');
           });
         });
       });
