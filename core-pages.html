@@ -63,7 +63,24 @@ Example:
     ],
 
     published: {
+
+      /**
+       * If you want to use the attribute value of the page element for `selected` instead of the
+       * index, set this to the name of the attribute.
+       *
+       * @attribute attrForSelected
+       * @type String
+       */
+      attrForSelected: String,
+
+      /**
+       * Gets or sets the selected page. The default is to use the index of the page.
+       *
+       * @attribute selected
+       * @type String|Array
+       */
       selected: String
+
     },
 
     bind: {
