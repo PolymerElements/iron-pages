@@ -11,7 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <html>
   <head>
 
-    <title>core-pages-basic</title>
+    <title>core-pages-attr-for-selected</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -27,11 +27,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <test-fixture id="basic">
       <template>
-        <core-pages>
-          <div id="page0">Page 0</div>
-          <div id="page1">Page 1</div>
-          <div id="page2">Page 2</div>
-          <div id="page3">Page 3</div>
+        <core-pages attrForSelected="name" selected="page0">
+          <div name="page0">Page 0</div>
+          <div name="page1">Page 1</div>
+          <div name="page2">Page 2</div>
+          <div name="page3">Page 3</div>
         </core-pages>
       </template>
     </test-fixture>
@@ -41,42 +41,38 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       suite('basic', function() {
         var pages;
 
-        suite('defaults', function() {
+        suite('honor the selected attribute', function() {
           setup(function () {
             pages = fixture('basic');
-          });
-
-          test('to nothing selected', function() {
-            assert.equal(pages.selected, undefined);
-          });
-
-          test('to core-selected as selectedClass', function() {
-            assert.equal(pages.selectedClass, 'core-selected');
-          });
-
-          test('as many items as children', function() {
-            assert.equal(pages.items.length, 4);
-          });
-
-          test('all pages are display:none', function() {
-            pages.items.forEach(function(p) {
-              assert.equal(getComputedStyle(p).display, 'none');
-            });
-          });
-        });
-
-        suite('set the selected attribute', function() {
-          setup(function () {
-            pages = fixture('basic');
-            pages.selected = 0;
           });
 
           test('selected value', function() {
-            assert.equal(pages.selected, '0');
+            assert.equal(pages.selected, 'page0');
           });
 
           test('selected item', function() {
             assert.equal(pages.selectedItem, pages.items[0]);
+          });
+
+          test('selected item is display:block and all others are display:none', function() {
+            pages.items.forEach(function(p) {
+              assert.equal(getComputedStyle(p).display, p == pages.selectedItem ? 'block' : 'none');
+            });
+          });
+        });
+
+        suite('set selected attribute', function() {
+          setup(function () {
+            pages = fixture('basic');
+            pages.selected = 'page2';
+          });
+
+          test('selected value', function() {
+            assert.equal(pages.selected, 'page2');
+          });
+
+          test('selected item', function() {
+            assert.equal(pages.selectedItem, pages.items[2]);
           });
 
           test('selected item is display:block and all others are display:none', function() {
