@@ -62,7 +62,7 @@ Example:
       'core-selectable'
     ],
 
-    published: {
+    properties: {
 
       /**
        * If you want to use the attribute value of the page element for `selected` instead of the
@@ -74,17 +74,16 @@ Example:
       attrForSelected: String,
 
       /**
-       * Gets or sets the selected page. The default is to use the index of the page.
+       * Sets the selected page. The default is to use the index of the page.
        *
        * @attribute selected
-       * @type String|Array
+       * @type String
        */
-      selected: String
+      selected: {
+        type: String,
+        observer: 'selectedChanged'
+      }
 
-    },
-
-    bind: {
-      selected: 'selectedChanged'
     },
 
     attached: function() {
@@ -94,6 +93,7 @@ Example:
 
     detached: function() {
       this.resizerDetached();
+      this.selectableDetached();
     },
 
     selectedChanged: function(selected, old) {
