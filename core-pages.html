@@ -39,15 +39,21 @@ Example:
 
   <style>
 
-    core-pages {
+    :host {
       display: block;
     }
 
-    core-pages > :not(.core-selected) {
+    :host > ::content > :not(.core-selected) {
       display: none !important;
     }
 
   </style>
+
+  <template>
+
+    <content></content>
+
+  </template>
 
 </dom-module>
 
