@@ -1,4 +1,5 @@
 <!--
+@license
 Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
 The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
@@ -11,13 +12,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <html>
 <head>
 
-  <title>core-pages</title>
+  <title>iron-pages</title>
 
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 
   <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-  <link rel="import" href="../core-pages.html">
+  <link rel="import" href="../iron-pages.html">
 
   <style>
 
@@ -29,7 +30,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       margin: 0;
     }
 
-    core-pages > * {
+    iron-pages > * {
       height: 100%;
       padding: 100px 0;
       font-size: 50px;
@@ -40,16 +41,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 </head>
 <body>
 
-  <core-pages selected="0">
+  <iron-pages selected="0">
     <div>Page One</div>
     <div>Page Two</div>
     <div>Page Three</div>
-  </core-pages>
+  </iron-pages>
 
   <script>
 
     document.addEventListener('click', function(e) {
-      var pages = document.querySelector('core-pages');
+      var pages = document.querySelector('iron-pages');
       pages.selectNext();
     });
 

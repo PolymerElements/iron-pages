@@ -1,5 +1,6 @@
 <!doctype html>
 <!--
+@license
 Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
 The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
@@ -11,15 +12,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <html>
   <head>
 
-    <title>core-pages-basic</title>
+    <title>iron-pages-basic</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../../web-component-tester/browser.js"></script>
     <script src="../../test-fixture/test-fixture-mocha.js"></script>
 
-    <link rel="import" href="../core-pages.html">
+    <link rel="import" href="../iron-pages.html">
     <link rel="import" href="../../test-fixture/test-fixture.html">
 
   </head>
@@ -27,12 +28,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <test-fixture id="basic">
       <template>
-        <core-pages>
+        <iron-pages>
           <div id="page0">Page 0</div>
           <div id="page1">Page 1</div>
           <div id="page2">Page 2</div>
           <div id="page3">Page 3</div>
-        </core-pages>
+        </iron-pages>
       </template>
     </test-fixture>
 
@@ -50,8 +51,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             assert.equal(pages.selected, undefined);
           });
 
-          test('to core-selected as selectedClass', function() {
-            assert.equal(pages.selectedClass, 'core-selected');
+          test('to iron-selected as selectedClass', function() {
+            assert.equal(pages.selectedClass, 'iron-selected');
           });
 
           test('as many items as children', function() {
