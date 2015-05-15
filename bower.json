@@ -1,6 +1,6 @@
 {
   "name": "iron-pages",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Organizes a set of pages and shows one at a time",
   "main": "iron-pages.html",
   "private": true,
