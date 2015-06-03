@@ -19,6 +19,7 @@
     "polymer": "Polymer/polymer#^1.0.0"
   },
   "devDependencies": {
+    "paper-styles": "polymerelements/paper-styles#^1.0.2",
     "iron-component-page": "polymerelements/iron-component-page#^1.0.0",
     "test-fixture": "polymerelements/test-fixture#^1.0.0",
     "web-component-tester": "*",
