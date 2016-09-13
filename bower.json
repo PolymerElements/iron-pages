@@ -1,6 +1,6 @@
 {
   "name": "iron-pages",
-  "version": "1.0.8",
+  "version": "2.0.0",
   "license": "http://polymer.github.io/LICENSE.txt",
   "description": "Organizes a set of pages and shows one at a time",
   "main": "iron-pages.html",
@@ -18,17 +18,26 @@
     "container"
   ],
   "dependencies": {
-    "iron-resizable-behavior": "polymerelements/iron-resizable-behavior#^1.0.0",
-    "iron-selector": "polymerelements/iron-selector#^1.0.0",
-    "polymer": "Polymer/polymer#^1.1.0"
+    "iron-resizable-behavior": "git@github.com:PolymerElements/iron-resizable-behavior.git#2.0-preview",
+    "iron-selector": "git@github.com:PolymerElements/iron-selector.git#2.0-preview",
+    "polymer": "git@github.com:Polymer/polymer.git#2.0-preview",
+    "iron-flex-layout": "git@github.com:PolymerElements/iron-flex-layout.git#2.0-preview"
   },
   "devDependencies": {
     "iron-component-page": "polymerelements/iron-component-page#^1.0.0",
-    "iron-demo-helpers": "polymerelements/iron-demo-helpers#^1.0.0",
-    "paper-styles": "polymerelements/paper-styles#^1.0.2",
-    "test-fixture": "polymerelements/test-fixture#^1.0.0",
+    "iron-demo-helpers": "git@github.com:PolymerElements/iron-demo-helpers.git#2.0-preview",
+    "paper-styles": "git@github.com:PolymerElements/paper-styles.git#2.0-preview",
+    "test-fixture": "polymerelements/test-fixture#custom-elements-v1",
     "web-component-tester": "^4.0.0",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+    "webcomponentsjs": "webcomponents/webcomponentsjs#v1"
   },
-  "ignore": []
+  "ignore": [],
+  "resolutions": {
+    "test-fixture": "custom-elements-v1",
+    "webcomponentsjs": "v1",
+    "iron-flex-layout": "2.0-preview",
+    "iron-selector": "2.0-preview",
+    "polymer": "2.0-preview",
+    "paper-styles": "2.0-preview"
+  }
 }

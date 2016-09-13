@@ -47,9 +47,13 @@ Example:
       :host > ::content > :not(.iron-selected) {
         display: none !important;
       }
+
+      :host > ::slotted(:not(.iron-selected)) {
+        display: none !important;
+      }
     </style>
 
-    <content></content>
+    <content></content><slot></slot>
   </template>
 
   <script>

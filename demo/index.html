@@ -25,36 +25,42 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
   <link rel="import" href="../iron-pages.html">
 
-  <style is="custom-style" include="demo-pages-shared-styles"></style>
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles"></style>
+  </custom-style>
 </head>
 <body unresolved>
   <div class="vertical-section-container centered">
     <h3>iron-pages shows only one of its children at a time.</h3>
     <demo-snippet>
       <template>
-        <style is="custom-style">
-          iron-pages {
-            width: 100%;
-            height: 200px;
-            font-size: 50px;
-            color: white;
-            text-align: center;
-          }
-          iron-pages div {
-            width: 100%;
-            height: 100%;
-            padding: 80px 0;
-          }
-          iron-pages div:nth-child(1) {
-            background-color: var(--google-blue-500);
-          }
-          iron-pages div:nth-child(2) {
-            background-color: var(--google-red-500);
-          }
-          iron-pages div:nth-child(3) {
-            background-color: var(--google-green-500);
-          }
-        </style>
+        <custom-style>
+          <style is="custom-style">
+            iron-pages {
+              width: 100%;
+              height: 200px;
+              font-size: 50px;
+              color: white;
+              text-align: center;
+            }
+            iron-pages div {
+              width: 100%;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            }
+            iron-pages div:nth-child(1) {
+              background-color: var(--google-blue-500);
+            }
+            iron-pages div:nth-child(2) {
+              background-color: var(--google-red-500);
+            }
+            iron-pages div:nth-child(3) {
+              background-color: var(--google-green-500);
+            }
+          </style>
+        </custom-style>
         <p>Click on a page to advance to the next one.</p>
         <iron-pages selected="0">
           <div>One</div>
