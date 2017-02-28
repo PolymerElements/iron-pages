@@ -26,9 +26,8 @@
     "iron-component-page": "polymerelements/iron-component-page#2.0-preview",
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#2.0-preview",
     "paper-styles": "PolymerElements/paper-styles#2.0-preview",
-    "test-fixture": "PolymerElements/test-fixture#^2.0.0",
-    "web-component-tester": "v6.0.0-prerelease.5",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#v1"
+    "web-component-tester": "^6.0.0-prerelease.6",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0-rc.1"
   },
   "variants": {
     "1.x": {
@@ -41,16 +40,10 @@
         "iron-component-page": "polymerelements/iron-component-page#^1.0.0",
         "iron-demo-helpers": "polymerelements/iron-demo-helpers#^1.0.0",
         "paper-styles": "polymerelements/paper-styles#^1.0.2",
-        "test-fixture": "polymerelements/test-fixture#^1.0.0",
         "web-component-tester": "^4.0.0",
         "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
       }
     }
   },
-  "ignore": [],
-  "resolutions": {
-    "test-fixture": "^2.0.0",
-    "webcomponentsjs": "v1",
-    "polymer": "2.0-preview"
-  }
+  "ignore": []
 }
