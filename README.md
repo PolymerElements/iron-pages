@@ -29,4 +29,4 @@ Example:
 
 IronSelectableBehavior and IronMultiSelectableBehavior, which are used by
 iron-pages, introduce multiple breaking changes. Please see the README for those
-elements for more detail.
+behaviors for more detail.
