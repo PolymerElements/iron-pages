@@ -1,0 +1,26 @@
+{
+  "name": "@polymer/iron-pages",
+  "flat": true,
+  "version": "3.0.0-pre.1",
+  "description": "Organizes a set of pages and shows one at a time",
+  "contributors": [
+    "The Polymer Authors"
+  ],
+  "keywords": [
+    "web-components",
+    "polymer",
+    "container"
+  ],
+  "main": "iron-pages.html",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PolymerElements/iron-pages.git"
+  },
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "dependencies": {
+    "@polymer/iron-resizable-behavior": "^3.0.0-pre.1",
+    "@polymer/iron-selector": "^3.0.0-pre.1",
+    "@polymer/polymer": "^3.0.0-pre.1"
+  },
+  "devDependencies": {}
+}
