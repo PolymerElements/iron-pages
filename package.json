@@ -1,0 +1,10 @@
+{
+  "name": "@polymer/iron-pages",
+  "private": true,
+  "description": "Organizes a set of pages and shows one at a time",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PolymerElements/iron-pages.git"
+  },
+  "license": "http://polymer.github.io/LICENSE.txt"
+}
