@@ -37,7 +37,7 @@ interface IronPagesElement extends Polymer.Element, Polymer.IronResizableBehavio
    * handler immediately changes it back
    */
   activateEvent: string|null|undefined;
-  _selectedPageChanged(selected: any, old: any): any;
+  _selectedPageChanged(selected: any, old: any): void;
 }
 
 interface HTMLElementTagNameMap {
