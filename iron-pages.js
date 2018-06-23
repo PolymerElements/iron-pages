@@ -1,4 +1,4 @@
-<!--
+/**
 @license
 Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
@@ -6,13 +6,8 @@ The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
-<link rel="import" href="../iron-selector/iron-selectable.html">
-
-<!--
+*/
+/**
 `iron-pages` is used to select one of its children to show. One use is to cycle through a list of
 children "pages".
 
@@ -34,11 +29,20 @@ Example:
 @group Iron Elements
 @hero hero.svg
 @demo demo/index.html
--->
+*/
+/*
+  FIXME(polymer-modulizer): the above comments were extracted
+  from HTML and may be out of place here. Review them and
+  then delete this comment!
+*/
+import '@polymer/polymer/polymer-legacy.js';
 
-<dom-module id="iron-pages">
-
-  <template>
+import { IronResizableBehavior } from '@polymer/iron-resizable-behavior/iron-resizable-behavior.js';
+import { IronSelectableBehavior } from '@polymer/iron-selector/iron-selectable.js';
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
+import { html } from '@polymer/polymer/lib/utils/html-tag.js';
+Polymer({
+  _template: html`
     <style>
       :host {
         display: block;
@@ -50,30 +54,24 @@ Example:
     </style>
 
     <slot></slot>
-  </template>
+`,
 
-  <script>
-    Polymer({
+  is: 'iron-pages',
+  behaviors: [IronResizableBehavior, IronSelectableBehavior],
 
-      is: 'iron-pages',
+  properties: {
 
-      behaviors: [Polymer.IronResizableBehavior, Polymer.IronSelectableBehavior],
+    // as the selected page is the only one visible, activateEvent
+    // is both non-sensical and problematic; e.g. in cases where a user
+    // handler attempts to change the page and the activateEvent
+    // handler immediately changes it back
+    activateEvent: {type: String, value: null}
 
-      properties: {
+  },
 
-        // as the selected page is the only one visible, activateEvent
-        // is both non-sensical and problematic; e.g. in cases where a user
-        // handler attempts to change the page and the activateEvent
-        // handler immediately changes it back
-        activateEvent: {type: String, value: null}
+  observers: ['_selectedPageChanged(selected)'],
 
-      },
-
-      observers: ['_selectedPageChanged(selected)'],
-
-      _selectedPageChanged: function(selected, old) {
-        this.async(this.notifyResize);
-      }
-    });
-  </script>
-</dom-module>
+  _selectedPageChanged: function(selected, old) {
+    this.async(this.notifyResize);
+  }
+});

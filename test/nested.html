@@ -16,9 +16,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <script src="../../web-component-tester/browser.js"></script>
-    <link rel="import" href="./nested-pages.html">
+    <script src="../../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <script src="../../../wct-browser-legacy/browser.js"></script>
+    <script type="module" src="./nested-pages.js"></script>
     
   </head>
   <body>
@@ -34,43 +34,45 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </template>
     </test-fixture>
 
-    <script>
-      suite('nested', function() {
-        var pages;
+    <script type="module">
+import './nested-pages.js';
+import { Base } from '@polymer/polymer/polymer-legacy.js';
+suite('nested', function() {
+  var pages;
 
-        suite('0 is selected', function() {
-          setup(function(done) {
-            pages = fixture('nested');
-            pages.addEventListener(
-                'iron-items-changed', function onIronItemsChanged() {
-                  pages.removeEventListener('iron-items-changed', onIronItemsChanged);
-                  done();
-                });
+  suite('0 is selected', function() {
+    setup(function(done) {
+      pages = fixture('nested');
+      pages.addEventListener(
+          'iron-items-changed', function onIronItemsChanged() {
+            pages.removeEventListener('iron-items-changed', onIronItemsChanged);
+            done();
           });
+    });
 
-          test(
-              'selected item is display:block and all others are display:none',
-              function(done) {
-                Polymer.Base.async(function() {
-                  var p = pages.selectedItem;
-                  assert.equal(getComputedStyle(p).display, 'block');
-                  assert.isAbove(p.clientHeight, 0);
-                  assert.isAbove(p.offsetHeight, 0);
-                  assert.isAbove(p.scrollHeight, 0);
-                  pages.items.forEach(function(p) {
-                    if (p != pages.selectedItem) {
-                      assert.equal(getComputedStyle(p).display, 'none');
-                      assert.equal(p.clientHeight, 0);
-                      assert.equal(p.offsetHeight, 0);
-                      assert.equal(p.scrollHeight, 0);
-                    }
-                  });
-                  done();
-                }, 1);
-              });
+    test(
+        'selected item is display:block and all others are display:none',
+        function(done) {
+          Base.async(function() {
+            var p = pages.selectedItem;
+            assert.equal(getComputedStyle(p).display, 'block');
+            assert.isAbove(p.clientHeight, 0);
+            assert.isAbove(p.offsetHeight, 0);
+            assert.isAbove(p.scrollHeight, 0);
+            pages.items.forEach(function(p) {
+              if (p != pages.selectedItem) {
+                assert.equal(getComputedStyle(p).display, 'none');
+                assert.equal(p.clientHeight, 0);
+                assert.equal(p.offsetHeight, 0);
+                assert.equal(p.scrollHeight, 0);
+              }
+            });
+            done();
+          }, 1);
         });
-      });
-    </script>
+  });
+});
+</script>
 
   </body>
 </html>
