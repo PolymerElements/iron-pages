@@ -34,78 +34,78 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </test-fixture>
 
     <script type="module">
-import '../iron-pages.js';
-suite('basic', function() {
-  var pages;
+      import '../iron-pages.js';
+      suite('basic', function() {
+        var pages;
 
-  suite('defaults', function() {
-    setup(function(done) {
-      pages = fixture('basic');
-      pages.addEventListener(
-          'iron-items-changed', function onIronItemsChanged() {
-            pages.removeEventListener('iron-items-changed', onIronItemsChanged);
-            done();
+        suite('defaults', function() {
+          setup(function(done) {
+            pages = fixture('basic');
+            pages.addEventListener(
+                'iron-items-changed', function onIronItemsChanged() {
+                  pages.removeEventListener('iron-items-changed', onIronItemsChanged);
+                  done();
+                });
           });
-    });
 
-    test('to nothing selected', function() {
-      assert.equal(pages.selected, undefined);
-    });
-
-    test('null activateEvent', function() {
-      // `activateEvent` is not a useful feature for iron-pages and it can
-      // interfere with ux; ensure iron-pages has cleared any default
-      // `activateEvent`
-      assert.equal(pages.activateEvent, null);
-    });
-
-    test('to iron-selected as selectedClass', function() {
-      assert.equal(pages.selectedClass, 'iron-selected');
-    });
-
-    test('as many items as children', function() {
-      assert.equal(pages.items.length, 4);
-    });
-
-    test('all pages are display:none', function() {
-      pages.items.forEach(function(p) {
-        assert.equal(getComputedStyle(p).display, 'none');
-      });
-    });
-  });
-
-  suite('set the selected attribute', function() {
-    setup(function(done) {
-      pages = fixture('basic');
-      pages.addEventListener(
-          'iron-items-changed', function onIronItemsChanged() {
-            pages.removeEventListener('iron-items-changed', onIronItemsChanged);
-
-            pages.selected = 0;
-            done();
+          test('to nothing selected', function() {
+            assert.equal(pages.selected, undefined);
           });
-    });
 
-    test('selected value', function() {
-      assert.equal(pages.selected, '0');
-    });
+          test('null activateEvent', function() {
+            // `activateEvent` is not a useful feature for iron-pages and it can
+            // interfere with ux; ensure iron-pages has cleared any default
+            // `activateEvent`
+            assert.equal(pages.activateEvent, null);
+          });
 
-    test('selected item', function() {
-      assert.equal(pages.selectedItem, pages.items[0]);
-    });
+          test('to iron-selected as selectedClass', function() {
+            assert.equal(pages.selectedClass, 'iron-selected');
+          });
 
-    test(
-        'selected item is display:block and all others are display:none',
-        function() {
-          pages.items.forEach(function(p) {
-            assert.equal(
-                getComputedStyle(p).display,
-                p == pages.selectedItem ? 'block' : 'none');
+          test('as many items as children', function() {
+            assert.equal(pages.items.length, 4);
+          });
+
+          test('all pages are display:none', function() {
+            pages.items.forEach(function(p) {
+              assert.equal(getComputedStyle(p).display, 'none');
+            });
           });
         });
-  });
-});
-</script>
+
+        suite('set the selected attribute', function() {
+          setup(function(done) {
+            pages = fixture('basic');
+            pages.addEventListener(
+                'iron-items-changed', function onIronItemsChanged() {
+                  pages.removeEventListener('iron-items-changed', onIronItemsChanged);
+
+                  pages.selected = 0;
+                  done();
+                });
+          });
+
+          test('selected value', function() {
+            assert.equal(pages.selected, '0');
+          });
+
+          test('selected item', function() {
+            assert.equal(pages.selectedItem, pages.items[0]);
+          });
+
+          test(
+              'selected item is display:block and all others are display:none',
+              function() {
+                pages.items.forEach(function(p) {
+                  assert.equal(
+                      getComputedStyle(p).display,
+                      p == pages.selectedItem ? 'block' : 'none');
+                });
+              });
+        });
+      });
+    </script>
 
   </body>
 </html>
