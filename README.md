@@ -29,6 +29,7 @@ npm install --save @polymer/iron-pages
   </head>
   <body>
     <iron-pages selected="0">
+      <div>Page 0</div>
       <div>Page 1</div>
       <div>Page 2</div>
       <div>Page 3</div>
@@ -49,6 +50,7 @@ class ExampleElement extends PolymerElement {
   static get template() {
     return html`
       <iron-pages selected="0">
+        <div>Page 0</div>
         <div>Page 1</div>
         <div>Page 2</div>
         <div>Page 3</div>
