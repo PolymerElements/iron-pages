@@ -19,42 +19,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
 
-  <script src="../../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-  <script type="module" src="../../paper-styles/color.js"></script>
-  <script type="module" src="../../iron-demo-helpers/demo-snippet.js"></script>
-  <script type="module" src="../../iron-demo-helpers/demo-pages-shared-styles.js"></script>
-  <script type="module" src="../iron-pages.js"></script>
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@^2.0.0/webcomponents-loader.js"></script>
+  <script type="module">
+    import '@polymer/paper-styles/color.js';
+    import '@polymer/iron-demo-helpers/demo-snippet.js';
+    import '@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
+    import '../iron-pages.js';
 
-  <!-- FIXME(polymer-modulizer):
-        These imperative modules that innerHTML your HTML are
-        a hacky way to be sure that any mixins in included style
-        modules are ready before any elements that reference them are
-        instantiated, otherwise the CSS @apply mixin polyfill won't be
-        able to expand the underlying CSS custom properties.
-        See: https://github.com/Polymer/polymer-modulizer/issues/154
-        -->
-    <script type="module">
-const $_documentContainer = document.createElement('template');
+    import {html} from '@polymer/polymer/lib/utils/html-tag.js';
 
-$_documentContainer.innerHTML = `<custom-style>
-    <style is="custom-style" include="demo-pages-shared-styles">
-      code {
-        background-color: #eee;
-        color: #222;
-        border-radius: 2px;
-        padding: 2px;
-      }
-    </style>
-  </custom-style>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>
+    const template = html`
+      <custom-style>
+        <style is="custom-style" include="demo-pages-shared-styles">
+          code {
+            background-color: #eee;
+            color: #222;
+            border-radius: 2px;
+            padding: 2px;
+          }
+        </style>
+      </custom-style>
+    `;
+    document.body.appendChild(template.content);
+  </script>
 </head>
 <body unresolved>
-  <script type="module">
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
+  <div class="vertical-section-container centered">
     <h3>iron-pages shows only one of its children at a time.</h3>
     <demo-snippet>
       <template>
@@ -96,25 +86,12 @@ $_documentContainer.innerHTML = `<div class="vertical-section-container centered
           pages.addEventListener('click', function(e) {
             pages.selectNext();
           });
-        &lt;/script>
-      </template>
-    </demo-snippet>
-  </div>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>Selector('iron-pages');
-pages.addEventListener('click', function(e) {
-  pages.selectNext();
-});
-</script>
+        </script>
       </template>
     </demo-snippet>
   </div>
 
-  <script type="module">
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
+  <div class="vertical-section-container centered">
     <h3>
       <code>&lt;iron-pages&gt;</code> inherits functionality (for example,
       <code>attr-for-selected</code>) from
@@ -175,9 +152,6 @@ $_documentContainer.innerHTML = `<div class="vertical-section-container centered
         </dom-bind>
       </template>
     </demo-snippet>
-  </div>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>
+  </div>
 </body>
 </html>
