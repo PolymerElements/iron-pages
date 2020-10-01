@@ -4,7 +4,7 @@
 
 ## &lt;iron-pages&gt;
 
-`iron-pages` is used to select one of its children to show. One use is to cycle
+`iron-pages` is used to select and show one of its children. One's use is to cycle
 through a list of children "pages".
 
 See: [Documentation](https://www.webcomponents.org/element/@polymer/iron-pages),
